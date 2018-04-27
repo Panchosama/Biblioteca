@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Biblioteca</string>
+    <string name="libro_titulo">Título: </string>
+    <string name="libro_autor">Autor(es): </string>
+    <string name="libro_desc">Descripción: </string>
+    <string name="libro_pag">Páginas: </string>
+    <string name="libro_editor">Editorial: </string>
+    <string name="libro_fecha">Año de publicación: </string>
 </resources>
