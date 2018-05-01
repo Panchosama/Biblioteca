@@ -6,4 +6,8 @@
     <string name="libro_pag">Páginas: </string>
     <string name="libro_editor">Editorial: </string>
     <string name="libro_fecha">Año de publicación: </string>
+    <string name="btn_escanear">Escanear</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_ver">Listar</string>
 </resources>

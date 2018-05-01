@@ -25,35 +25,40 @@
             android:layout_height="wrap_content"
             android:text="@string/libro_autor"
             android:textSize="16sp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:id="@+id/txtAutor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/libro_editor"
             android:textSize="16sp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:id="@+id/txtEditor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/libro_fecha"
             android:textSize="16sp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:id="@+id/txtFecha"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/libro_pag"
             android:textSize="16sp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:id="@+id/txtPaginas"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/libro_desc"
             android:textSize="16sp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:id="@+id/txtDesc"/>
 
     </LinearLayout>
 
