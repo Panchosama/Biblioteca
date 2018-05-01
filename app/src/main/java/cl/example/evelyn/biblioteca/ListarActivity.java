@@ -32,6 +32,8 @@ public class ListarActivity extends AppCompatActivity {
         final Spinner dropdown = findViewById(R.id.spinner1);
         txtBusqueda =(EditText) findViewById(R.id.txtBusqueda);
 
+
+
         String[] items = new String[]{"Titulo", "Autor"};
 
         ArrayAdapter<String> filtro = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -66,6 +68,8 @@ public class ListarActivity extends AppCompatActivity {
 
             }
         });
+
+        btnBuscar.performClick();
 
         /**
          * item de lista a mostrar
