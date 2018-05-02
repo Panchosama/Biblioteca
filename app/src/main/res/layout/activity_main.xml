@@ -34,7 +34,9 @@
                 android:text="@string/btn_buscar"
                 android:textAllCaps="false"
                 android:padding="10dp"
-                android:drawableLeft="@drawable/magnify"
+                android:drawableStart="@drawable/magnify"
+                android:background="@color/colorAccent"
+                android:textColor="#FFFFFF"
                 />
 
           </LinearLayout>
@@ -43,18 +45,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_margin="10dp">
+        android:padding="10dp">
 
         <Button
-            android:id="@+id/btnEscanear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/btnEscanear"
             android:onClick="escanearQR"
             android:textAllCaps="false"
-            android:drawableLeft="@drawable/barcode_scan"
-            android:text="@string/btn_escanear" />
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/barcode_scan"
+            android:text="@string/btn_escanear"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"/>
 
 
         <Button
@@ -65,7 +70,10 @@
             android:text="@string/btn_ver"
             android:textAllCaps="false"
             android:padding="10dp"
-            android:drawableLeft="@drawable/book"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/book"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"
             />
     </LinearLayout>
 
@@ -98,10 +106,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnGuardar"
             android:text="@string/btn_guardar"
-            android:drawableLeft="@drawable/plus"
+            android:drawableStart="@drawable/plus"
             android:textAllCaps="false"
             android:padding="10dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

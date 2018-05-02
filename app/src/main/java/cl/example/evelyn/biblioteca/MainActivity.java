@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                {
                    mensaje = conexion.guardarLibro(libros);
                    Toast.makeText(MainActivity.this,mensaje,Toast.LENGTH_SHORT).show();
-                   libroList.clear();
+
                }
 
            }

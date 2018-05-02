@@ -87,7 +87,7 @@ public class LibroBD extends SQLiteOpenHelper {
         String mensaje;
         ArrayList<Libro> listar = new ArrayList<>();
         SQLiteDatabase sql = this.getWritableDatabase();
-        String consulta = "SELECT * FROM libro WHERE titulo = '"+ libro.getTitulo() + "'";
+        String consulta = "SELECT * FROM libro WHERE titulo = '"+ libro.getTitulo().replace("'","_") + "'";
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
