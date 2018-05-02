@@ -4,83 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="cl.example.evelyn.biblioteca.MainActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtCodigo"
-            android:inputType="number"
-            android:hint="Ingrese codigo ISBN"/>
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
 
-    <LinearLayout
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/txtCodigo"
+                android:inputType="number"
+                android:hint="@string/txt_codhint"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/btnEnviar"
+                android:text="@string/btn_buscar"
+                android:textAllCaps="false"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/magnify"
+                />
+
+          </LinearLayout>
+
+       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_margin="10dp">
+
         <Button
             android:id="@+id/btnEscanear"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="escanearQR"
             android:textAllCaps="false"
-            android:text="Escanear" />
+            android:drawableLeft="@drawable/barcode_scan"
+            android:text="@string/btn_escanear" />
+
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnEnviar"
-            android:text="Buscar"
-            android:textAllCaps="false"
-            android:padding="10dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnGuardar"
-            android:text="Guardar"
-            android:textAllCaps="false"
-            android:padding="10dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/btnListar"
-            android:text="Buscar libro"
+            android:text="@string/btn_ver"
             android:textAllCaps="false"
             android:padding="10dp"
+            android:drawableLeft="@drawable/book"
             />
     </LinearLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ultimoCodigo"
-            android:text=""
             android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:textAppearance="@color/colorPrimary"/>
+            android:orientation="vertical">
+      <!--  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ultimoCodigo"
+                android:text=""
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textAppearance="@color/colorPrimary"/>
+      -->
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
 
 
-
-    </LinearLayout>
-
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGuardar"
+            android:text="@string/btn_guardar"
+            android:drawableLeft="@drawable/plus"
+            android:textAllCaps="false"
+            android:padding="10dp"
+            android:visibility="invisible"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

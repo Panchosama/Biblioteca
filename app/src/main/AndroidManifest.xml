@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListarActivity" />
-        <activity android:name=".CodeActivity"></activity>
+        <activity android:name=".CodeActivity" />
+        <activity android:name=".LibroActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package cl.example.evelyn.biblioteca;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnGuardar;
     private Button btnListar;
     private Libro libros;
-    public TextView listaCodigos;
+    // public TextView listaCodigos;
     // Constante necesaria para el chequeo de permisos
     private static final int MY_PERMISSIONS_REQUEST_CAMERA=1;
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_main);
-       listaCodigos=(TextView)findViewById(R.id.ultimoCodigo);
+       // listaCodigos=(TextView)findViewById(R.id.ultimoCodigo);
        //Invoco permisos
        checkPermiso();
 
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                {
                    mensaje = conexion.guardarLibro(libros);
                    Toast.makeText(MainActivity.this,mensaje,Toast.LENGTH_SHORT).show();
-
+                   libroList.clear();
                }
 
            }
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mensaje);
             }
         });
+
 
     }
     /**
@@ -195,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                             this,
                             barcode.displayValue,
                             Toast.LENGTH_SHORT).show(); */
-                    this.listaCodigos.setText(barcode.displayValue);
+                    //this.listaCodigos.setText(barcode.displayValue);
                     this.txtCodigo.setText(barcode.displayValue);
 
                 }else{
@@ -294,13 +296,29 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
                             libro.put("pageCount", "Cantidad de paginas :" +  pageCount);
                             libros = new Libro("0",title,authors,publisher,publishedDate,description,pageCount);
 
-                            // adding contact to contact list
+                            // agregar libro a la BD
                             libroList.add(libro);
-                    }
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                   btnGuardar.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        }
 
                     }
                     else    {
-                        Toast.makeText(getApplicationContext(),"No hay infomacion de este libro",Toast.LENGTH_LONG).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getApplicationContext(),
+                                        "No es un código ISBN válido, o no hay información del libro",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                       //Toast.makeText(getApplicationContext(),"No hay infomacion de este libro",Toast.LENGTH_LONG).show();
                     }
                 } catch (final JSONException e) {
                     //Log.e(TAG, "Json parsing error: " + e.getMessage());

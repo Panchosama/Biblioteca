@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,8 @@ public class ListarActivity extends AppCompatActivity {
         final Spinner dropdown = findViewById(R.id.spinner1);
         txtBusqueda =(EditText) findViewById(R.id.txtBusqueda);
 
+
+
         String[] items = new String[]{"Titulo", "Autor"};
 
         ArrayAdapter<String> filtro = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -49,7 +52,7 @@ public class ListarActivity extends AppCompatActivity {
                 if (dropdown.getSelectedItem().toString().equals("Titulo")){
                     listaItems = conexion.listarPorTitulo(txtBusqueda.getText().toString());
                 }
-                if (dropdown.getSelectedItem().toString().equals("Fecha publicacion")){
+                if (dropdown.getSelectedItem().toString().equals("Año publicacion")){
                     listaItems = conexion.listarFecha(txtBusqueda.getText().toString());
                 }
                 if (dropdown.getSelectedItem().toString().equals("Autor")){
@@ -65,6 +68,32 @@ public class ListarActivity extends AppCompatActivity {
 
             }
         });
+
+        btnBuscar.performClick();
+
+        /**
+         * item de lista a mostrar
+         */
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Libro currentItem = (Libro)adapter.getItem(position);
+
+                Intent verLibro = new Intent(ListarActivity.this, LibroActivity.class);
+                Bundle bun = new Bundle();
+                bun.putString("titulo", currentItem.getTitulo());
+                bun.putString("autor", currentItem.getAutor());
+                bun.putString("editorial", currentItem.getEditor());
+                bun.putString("fecha", currentItem.getFechaPublicacion());
+                bun.putString("desc",currentItem.getDescripcion());
+                bun.putString("pag",currentItem.getPaginas());
+                verLibro.putExtras(bun);
+                startActivity(verLibro);
+
+            }
+        });
+
+
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
