@@ -5,61 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LibroActivity">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="31dp">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/txtTitulo"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Título de la obra"
+            android:textAlignment="center"
             android:textSize="20sp"
-            android:padding="10dp"/>
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtAutor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/libro_autor"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:id="@+id/txtAutor"/>
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/txtEditor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/libro_editor"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:id="@+id/txtEditor"/>
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/txtFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/libro_fecha"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:id="@+id/txtFecha"/>
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/txtPaginas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/libro_pag"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:id="@+id/txtPaginas"/>
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/txtDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/libro_desc"
-            android:textSize="16sp"
             android:padding="10dp"
-            android:id="@+id/txtDesc"/>
+            android:text="@string/libro_desc"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/prestado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Prestado"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txtDescripcionEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Ingrese detalle del prestamo del libro"
+            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">"
+            >
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:drawableStart="@drawable/plus"
+                android:padding="10dp"
+                android:text="@string/btn_guardar"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                />
+
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="10dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:text="         Volver"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class LibroBD extends SQLiteOpenHelper {
-    private String consultaCreate ="CREATE TABLE libro(id_libro INTEGER PRIMARY KEY AUTOINCREMENT , titulo TEXT NOT NULL,autor   TEXT NOT NULL,editor TEXT NOT NULL,fecha TEXT NOT NULL,descripcion TEXT NOT NULL,cantidad TEXT NOT NULL) ";
+    private String consultaCreate ="CREATE TABLE libro(id_libro INTEGER PRIMARY KEY AUTOINCREMENT , titulo TEXT NOT NULL,autor   TEXT NOT NULL,editor TEXT NOT NULL,fecha TEXT NOT NULL,descripcion TEXT NOT NULL,cantidad TEXT NOT NULL,estado boolean NOT NULL default 0,descripcionestado TEXT NULL) ";
     public LibroBD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -34,7 +34,7 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6) ) );
+                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -48,7 +48,7 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6) ) );
+                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -62,7 +62,7 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6) ) );
+                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -76,7 +76,7 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6) ) );
+                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -91,7 +91,7 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6) ) );
+                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
             }while(lista.moveToNext());
         }
         if(listar.size()>0)
@@ -99,11 +99,33 @@ public class LibroBD extends SQLiteOpenHelper {
             mensaje="El libro ya existe";
         }
         else {
-            String consultaInsert = "INSERT INTO Libro (titulo,autor,editor,fecha,descripcion,cantidad)VALUES('" +
-                    libro.getTitulo().replace("'","_") + "','" + libro.getAutor().replace("'","_") + "','" + libro.getEditor() + "','" + libro.getFechaPublicacion() + "','"+ libro.getDescripcion().replace("'","_") + "','" + libro.getPaginas() + "')";
+            String consultaInsert = "INSERT INTO Libro (titulo,autor,editor,fecha,descripcion,cantidad,estado,descripcionestado)VALUES('" +
+                    libro.getTitulo().replace("'","_") + "','" + libro.getAutor().replace("'","_") + "','" + libro.getEditor() + "','" + libro.getFechaPublicacion() + "','"+ libro.getDescripcion().replace("'","_") + "','" + libro.getPaginas() + "','"+ libro.getEstado()+ "','"+libro.getDescripcionestado() + "')";
 
-            sql.execSQL(consultaInsert);
-             mensaje= "Libro ingresado";
+            try {
+                sql.execSQL(consultaInsert);
+                mensaje= "Libro ingresado";
+
+            }catch (Exception e){
+                mensaje= "Libro No ingresado "+ e.getMessage();
+            }
+
+        }
+        return mensaje;
+
+    }
+    public String actualizarEstado(Boolean estado,String descripcionestado,String id_libro )
+    {
+        String mensaje;
+        SQLiteDatabase sql = this.getWritableDatabase();
+        try  {
+
+            String consultaUpdate = "UPDATE Libro SET estado ='" + estado + "' ,descripcionestado = '"+ descripcionestado + "' WHERE id_libro =" + id_libro;
+
+            sql.execSQL(consultaUpdate);
+            mensaje= "Estado Actualizado correctamente";
+        }catch (Exception e){
+            mensaje= "Error actualizando estado " +e.getMessage() ;
         }
         return mensaje;
 

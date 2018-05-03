@@ -294,7 +294,7 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
                             libro.put("publishedDate", "Fecha de publicacion :" +  publishedDate);
                             libro.put("description", "Descripcion :" +  description);
                             libro.put("pageCount", "Cantidad de paginas :" +  pageCount);
-                            libros = new Libro("0",title,authors,publisher,publishedDate,description,pageCount);
+                            libros = new Libro("0",title,authors,publisher,publishedDate,description,pageCount,true,"prueba");
 
                             // agregar libro a la BD
                             libroList.add(libro);

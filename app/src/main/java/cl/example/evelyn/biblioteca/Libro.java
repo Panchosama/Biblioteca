@@ -12,8 +12,10 @@ public class Libro {
     private String fechaPublicacion;
     private String descripcion;
     private String paginas;
+    private Boolean estado;
+    private String descripcionestado;
 
-    public Libro(String ids,String titulos,String autors,String editors,String fechaPublicacions,String descripcions,String paginass ){
+    public Libro(String ids,String titulos,String autors,String editors,String fechaPublicacions,String descripcions,String paginass,Boolean estados,String descripcionestados  ){
         id = ids;
         titulo = titulos;
         autor = autors;
@@ -21,6 +23,8 @@ public class Libro {
         fechaPublicacion = fechaPublicacions;
         descripcion = descripcions;
         paginas = paginass;
+        estado = estados;
+        descripcionestado = descripcionestados;
 
     }
 
@@ -79,6 +83,21 @@ public class Libro {
 
     public void setEditor(String editor) {
         this.editor = editor;
+    }
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getDescripcionestado() {
+        return descripcionestado;
+    }
+
+    public void setDescripcionestado(String descripcionestado) {
+        this.descripcionestado = descripcionestado;
     }
     @Override
     public String toString() {

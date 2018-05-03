@@ -87,6 +87,9 @@ public class ListarActivity extends AppCompatActivity {
                 bun.putString("fecha", currentItem.getFechaPublicacion());
                 bun.putString("desc",currentItem.getDescripcion());
                 bun.putString("pag",currentItem.getPaginas());
+                bun.putBoolean("estado",currentItem.getEstado());
+                bun.putString("descripcionestado",currentItem.getDescripcionestado());
+                bun.putString("id",currentItem.getId());
                 verLibro.putExtras(bun);
                 startActivity(verLibro);
 
