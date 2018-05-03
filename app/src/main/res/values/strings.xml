@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Biblioteca</string>
+    <string name="app_name">Mylib</string>
     <string name="txt_codhint">Ingrese codigo ISBN</string>
     <string name="libro_titulo">Título: </string>
     <string name="libro_autor">Autor(es): </string>
@@ -14,4 +14,5 @@
     <string name="hint_prestamo">Ingrese detalle del prestamo del libro</string>
     <string name="txt_prestado">Prestado</string>
     <string name="btn_volver">Volver</string>
+    <string name="hint_filtro">Ingrese filtro</string>
 </resources>

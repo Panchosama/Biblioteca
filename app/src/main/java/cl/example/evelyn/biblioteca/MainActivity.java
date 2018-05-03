@@ -220,7 +220,7 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(MainActivity.this,"Se esta cargando la informacion",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Se esta cargando la informacion",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -252,7 +252,7 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
                             try {
                                 title = volumeInfo.getString("title");
                             }catch (Exception e){
-                                title =" Sin titulo";
+                                title ="Sin título";
                             }
                             try{
                                 authors = volumeInfo.getString("authors");
@@ -262,18 +262,18 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
                             try{
                                 publisher = volumeInfo.getString("publisher");
                             }catch (Exception e){
-                                publisher =" Sin editor";
+                                publisher ="Sin editor";
                             }
                             try{
                                 publishedDate = volumeInfo.getString("publishedDate");
                             } catch (Exception e){
-                                publishedDate =" Sin fecha de publicacion";
+                                publishedDate ="Sin fecha de publicacion";
                             }
 
                             try{
                                 description = volumeInfo.getString("description");
                             }catch (Exception e){
-                                description =" Sin descripcion";
+                                description ="Sin descripcion";
                             }
                             try{
                                 pageCount = volumeInfo.getString("pageCount");
@@ -288,13 +288,13 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
 
                             // adding each child node to HashMap key => value
 
-                            libro.put("title", "Titulo :" + title);
-                            libro.put("authors", "Autor :" +  authors);
-                            libro.put("publisher", "Editor :" +  publisher);
-                            libro.put("publishedDate", "Fecha de publicacion :" +  publishedDate);
-                            libro.put("description", "Descripcion :" +  description);
-                            libro.put("pageCount", "Cantidad de paginas :" +  pageCount);
-                            libros = new Libro("0",title,authors,publisher,publishedDate,description,pageCount,true,"prueba");
+                            libro.put("title", "Titulo : " + title);
+                            libro.put("authors", "Autor : " +  authors);
+                            libro.put("publisher", "Editor : " +  publisher);
+                            libro.put("publishedDate", "Fecha de publicacion : " +  publishedDate);
+                            libro.put("description", "Descripcion : " +  description);
+                            libro.put("pageCount", "Cantidad de paginas : " +  pageCount);
+                            libros = new Libro("0",title,authors,publisher,publishedDate,description,pageCount,false,"");
 
                             // agregar libro a la BD
                             libroList.add(libro);
@@ -318,7 +318,6 @@ private class GetLibros extends AsyncTask<Void, Void, Void> {
                             }
                         });
 
-                       //Toast.makeText(getApplicationContext(),"No hay infomacion de este libro",Toast.LENGTH_LONG).show();
                     }
                 } catch (final JSONException e) {
                     //Log.e(TAG, "Json parsing error: " + e.getMessage());

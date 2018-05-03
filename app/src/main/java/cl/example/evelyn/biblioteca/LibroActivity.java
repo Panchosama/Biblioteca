@@ -42,7 +42,7 @@ public class LibroActivity extends AppCompatActivity {
 
         final LibroBD  conexion = new LibroBD(this,"ConexionBD",null, 1);
 
-        Bundle b= getIntent().getExtras();
+        Bundle b = getIntent().getExtras();
 
 
 

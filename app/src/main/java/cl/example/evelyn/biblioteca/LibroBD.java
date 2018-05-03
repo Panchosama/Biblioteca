@@ -32,6 +32,7 @@ public class LibroBD extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
     public ArrayList listarLibros(){
         ArrayList<Libro> listar = new ArrayList<>();
         SQLiteDatabase sql = this.getWritableDatabase();
@@ -41,7 +42,16 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
+                listar.add(new Libro(
+                        lista.getString(0),
+                        lista.getString(1),
+                        lista.getString(2),
+                        lista.getString(3),
+                        lista.getString(4),
+                        lista.getString(5),
+                        lista.getString(6),
+                        Boolean.parseBoolean(lista.getString(7)),
+                        lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -55,7 +65,16 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
+                listar.add(new Libro(
+                        lista.getString(0),
+                        lista.getString(1),
+                        lista.getString(2),
+                        lista.getString(3),
+                        lista.getString(4),
+                        lista.getString(5),
+                        lista.getString(6),
+                        Boolean.parseBoolean(lista.getString(7)),
+                        lista.getString(8) ) );
             }while(lista.moveToNext());
 
         }
@@ -98,7 +117,16 @@ public class LibroBD extends SQLiteOpenHelper {
         Cursor lista = sql.rawQuery(consulta,null);
         if(lista.moveToFirst()) {
             do {
-                listar.add(new Libro( lista.getString(0), lista.getString(1), lista.getString(2), lista.getString(3), lista.getString(4), lista.getString(5), lista.getString(6),Boolean.parseBoolean(lista.getString(7)),lista.getString(8) ) );
+                listar.add(new Libro(
+                        lista.getString(0),
+                        lista.getString(1),
+                        lista.getString(2),
+                        lista.getString(3),
+                        lista.getString(4),
+                        lista.getString(5),
+                        lista.getString(6),
+                        Boolean.parseBoolean(lista.getString(7)),
+                        lista.getString(8) ) );
             }while(lista.moveToNext());
         }
         if(listar.size()>0)
@@ -107,7 +135,13 @@ public class LibroBD extends SQLiteOpenHelper {
         }
         else {
             String consultaInsert = "INSERT INTO Libro (titulo,autor,editor,fecha,descripcion,cantidad,estado,descripcionestado)VALUES('" +
-                    libro.getTitulo().replace("'","_") + "','" + libro.getAutor().replace("'","_") + "','" + libro.getEditor() + "','" + libro.getFechaPublicacion() + "','"+ libro.getDescripcion().replace("'","_") + "','" + libro.getPaginas() + "','"+ libro.getEstado()+ "','"+libro.getDescripcionestado() + "')";
+                    libro.getTitulo().replace("'","_") + "','" +
+                    libro.getAutor().replace("'","_") + "','" +
+                    libro.getEditor() + "','" + libro.getFechaPublicacion() + "','"+
+                    libro.getDescripcion().replace("'","_") + "','" +
+                    libro.getPaginas() + "','"+
+                    libro.getEstado()+ "','"+
+                    libro.getDescripcionestado() + "')";
 
             try {
                 sql.execSQL(consultaInsert);
@@ -127,7 +161,10 @@ public class LibroBD extends SQLiteOpenHelper {
         SQLiteDatabase sql = this.getWritableDatabase();
         try  {
 
-            String consultaUpdate = "UPDATE Libro SET estado ='" + estado + "' ,descripcionestado = '"+ descripcionestado + "' WHERE id_libro =" + id_libro;
+            String consultaUpdate = "UPDATE Libro SET " +
+                    "estado ='" + estado + "' ," +
+                    "descripcionestado = '"+ descripcionestado + "' " +
+                    "WHERE id_libro =" + id_libro;
 
             sql.execSQL(consultaUpdate);
             mensaje= "Estado Actualizado correctamente";

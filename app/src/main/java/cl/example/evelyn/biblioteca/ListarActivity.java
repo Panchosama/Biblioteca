@@ -45,7 +45,7 @@ public class ListarActivity extends AppCompatActivity {
                 "ConexionBD",
                 null,
                 1);
-        //listaItems = conexion.listarLibros();
+
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
