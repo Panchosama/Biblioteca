@@ -18,8 +18,9 @@
 
             <Spinner
                 android:id="@+id/spinner1"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown"
                 android:textAllCaps="false"
@@ -33,9 +34,11 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtBusqueda"
                 android:hint="Ingrese filtro busqueda"
+
                 />
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonBuscar"
                 android:text="@string/btn_buscar"
@@ -45,6 +48,14 @@
                 android:textColor="#FFFFFF"
                 />
         </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lista"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+        </ListView>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,16 +63,9 @@
             android:text="@string/btn_volver"
             android:textAllCaps="false"
             android:padding="10dp"
+            android:layout_margin="10dp"
             android:background="@color/colorAccent"
             android:textColor="#FFFFFF"/>
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lista"
-            android:padding="10dp"
-            android:layout_margin="10dp">
-
-        </ListView>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
