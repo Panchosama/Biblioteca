@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,46 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp" >
 
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"
-            android:textAllCaps="false"
-            android:padding="0dp"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtBusqueda"
-            android:hint="Ingrese filtro busqueda"/>
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:textAllCaps="false"
+                android:padding="0dp"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="#FFFFFF"
+
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtBusqueda"
+                android:hint="Ingrese filtro busqueda"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonBuscar"
+                android:text="@string/btn_buscar"
+                android:textAllCaps="false"
+                android:padding="0dp"
+                android:background="@color/colorAccent"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/botonBuscar"
-            android:text="Buscar"
-            android:textAllCaps="false"
-            android:padding="0dp"
-            />
-
-
-
-    </LinearLayout>
-        <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/botonVolver"
-            android:text="Volver"
+            android:text="@string/btn_volver"
             android:textAllCaps="false"
             android:padding="10dp"
-            android:paddingLeft="0dp"/>
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"/>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

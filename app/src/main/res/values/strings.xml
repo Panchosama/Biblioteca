@@ -11,4 +11,7 @@
     <string name="btn_buscar">Buscar</string>
     <string name="btn_guardar">Guardar</string>
     <string name="btn_ver">Listar</string>
+    <string name="hint_prestamo">Ingrese detalle del prestamo del libro</string>
+    <string name="txt_prestado">Prestado</string>
+    <string name="btn_volver">Volver</string>
 </resources>
